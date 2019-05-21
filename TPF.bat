@@ -1,9 +1,11 @@
-@echo off ::Ausschalten der Anzeige von Befehlen in der CMD
+::Ausschalten der Anzeige von Befehlen in der CMD
+@echo off
 
-::Anzahl der Dokumente die finalisiert werden sollen
-set /a anzahlPDF=0
-echo %anzahlPDF% zu verschiebende/s PDF
+::TODO: Anzahl der Dokumente die finalisiert werden sollen -Wird erst nach erster "Vollversion" hinzugefügt-
+::set /a anzahlPDF=0
+::echo %anzahlPDF% zu verschiebende/s PDF
 
+::TODO: Namensliste der gefundenen Dokumente -Wird erst nach erster "Vollversion" hinzugefügt-
 
 ::Nachfragen ob die Dokumente wirklich finalisiert werden sollen
 :NotYorN
@@ -17,7 +19,12 @@ goto NotYorN
 :FINALISE
 set /p kw="In welches KW sollen die PDFs verschoben werden? "
 
-echo J:/02_Service Projects/SrvProjects_DE/apoBank/Korrespondenz/allgemein/Auslieferung/KW%kw%
+set t1=%USERPROFILE%/Downloads/
+set t2=t1 /b
+for %%I in (%test%) do echo %%~nxI
+
+::echo %USERPROFILE%\Downloads
+echo J:\02_Service Projects\SrvProjects_DE\apoBank\Korrespondenz\allgemein\Auslieferung\KW%kw%
 
 ::Programmende
 :ENDwoERR
