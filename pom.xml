@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.assentis</groupId>
+    <artifactId>skypeToExcel</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>SkypeToExcel</name>
+
+    <developers>
+        <developer>
+            <name>Erik Sattelmair</name>
+            <roles>
+                <role>Consultant Professional Services</role>
+            </roles>
+            <url>https://github.com/ErikSattelmair</url>
+            <email>erik.sattelmair@assentis.com</email>
+            <organization>Assentis Technologies AG</organization>
+            <organizationUrl>https://www.assentis.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/IceWolves/SkypeToExcel/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <dependencies>
+
+    </dependencies>
+
+    <build>
+
+    </build>
+
+</project>
