@@ -4,12 +4,6 @@
 ::Momentanen Pfad speichern
 set path=%cd%
 
-::TODO: Anzahl der Dokumente die finalisiert werden sollen -Wird erst nach erster "Vollversion" hinzugefügt-
-::set /a anzahlPDF=0
-::echo %anzahlPDF% zu verschiebende/s PDF
-
-::TODO: Namensliste der gefundenen Dokumente -Wird erst nach erster "Vollversion" hinzugefügt-
-
 ::Nachfragen ob die Dokumente wirklich finalisiert werden sollen
 set /a anzahlDokumente=0
 cd %USERPROFILE%\Downloads\
@@ -62,18 +56,22 @@ echo %anzahlDokumente% werden kopiert und umbenannt.
 ::Datei in KW Ordner kopieren und in TST_DATEINAME_final.pdf umbenennen
 cd %USERPROFILE%\Downloads\
 for /f %%A in ('dir /b TST_*.pdf') do (
-    copy "%USERPROFILE%\Downloads\%%~nA.pdf" "J:\02_Service Projects\SrvProjects_DE\apoBank\Korrespondenz\allgemein\Auslieferung\KW%kw%"
-    cd J:\02_Service Projects\SrvProjects_DE\apoBank\Korrespondenz\allgemein\Auslieferung\KW%kw%
+    copy "%USERPROFILE%\Downloads\%%~nA.pdf" "J:\02_Service Projects\SrvProjects_DE\apoBank\Korrespondenz\allgemein\Auslieferung\KW%kw%\"
+    J:
+    cd J:\02_Service Projects\SrvProjects_DE\apoBank\Korrespondenz\allgemein\Auslieferung\KW%kw%\
     rename "%%~nA.pdf" "%%~nA_final.pdf"
+    C:
     cd %USERPROFILE%\Downloads\
 )
 
 ::Alle Dateien mit TST_DATEINAME am anfang in DATEINAME umbenennen
+J:
 cd J:\02_Service Projects\SrvProjects_DE\apoBank\Korrespondenz\allgemein\Auslieferung\KW%kw%
 rename "TST_*.pdf" "////*.pdf"
 
 ::Programmende
 :ENDwoERR
+C:
 cd %path%
 echo Programm beendet
 goto EOF
