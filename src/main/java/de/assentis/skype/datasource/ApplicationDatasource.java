@@ -9,6 +9,8 @@ public class ApplicationDatasource {
 
     private String skypeGroupName;
 
+    private String messageFilePath;
+
     private String excelFilePath;
 
     private String excelWorksheetName;

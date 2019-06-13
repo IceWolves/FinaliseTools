@@ -3,6 +3,8 @@ package de.assentis.skype.configuration;
 import de.assentis.skype.datasource.ApplicationDatasource;
 import de.assentis.skype.excel.ExcelWriterService;
 import de.assentis.skype.excel.impl.ExcelWriterServiceImpl;
+import de.assentis.skype.message.MessageExtractorService;
+import de.assentis.skype.message.impl.MessageExtractorServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +15,10 @@ import org.springframework.context.annotation.PropertySource;
 public class ApplicationConfiguration {
 
     @Value("${skype.groupname}")
-    private String groupName;
+    private String skypeGroupName;
+
+    @Value("${message.filepath}")
+    private String messageFilePath;
 
     @Value("${excel.filepath}")
     private String excelFilePath;
@@ -45,7 +50,8 @@ public class ApplicationConfiguration {
     @Bean
     public ApplicationDatasource applicationDatasource() {
         return ApplicationDatasource.builder()
-                .skypeGroupName(this.groupName)
+                .skypeGroupName(this.skypeGroupName)
+                .messageFilePath(this.messageFilePath)
                 .excelFilePath(this.excelFilePath)
                 .excelWorksheetName(excelWorksheet)
                 .excelColumnName(this.excelColumnName)
@@ -61,6 +67,11 @@ public class ApplicationConfiguration {
     @Bean
     public ExcelWriterService excelWriterService() {
         return new ExcelWriterServiceImpl();
+    }
+
+    @Bean
+    public MessageExtractorService messageExtractorService() {
+        return new MessageExtractorServiceImpl();
     }
 
 }
